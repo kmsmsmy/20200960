@@ -27,7 +27,7 @@ function init(){ // 로그인 폼에 쿠키에서 가져온 아이디 입력
     session_check(); // 세션 유무 검사
 
 }
-
+// 11주차 응용문제
 function login_check(email, password)
    {
     const emailRegex = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
