@@ -27,7 +27,7 @@ function init(){ // 로그인 폼에 쿠키에서 가져온 아이디 입력
     session_check(); // 세션 유무 검사
 
 }
-// 11주차 응용문제
+// 9주차 응용문제
 function login_check(email, password)
    {
     const emailRegex = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
@@ -44,7 +44,15 @@ function login_check(email, password)
    }
     return true;
    }
+
+
+
+
 // 로그인 횟수 쿠키 저장 함수
+
+
+
+//11주차 응용
 // 로그인카운트
 function login() {
   let form = document.querySelector("#form_main");
@@ -59,7 +67,7 @@ function login() {
     alert("쿠키를 저장합니다.");
     setCookie("id", id.value, 5/1440); // 5분 유지
     alert("쿠키 값: " + id.value);
-  } else {
+  } else 
     setCookie("id", id.value, 0);
   }
 
@@ -74,7 +82,7 @@ function login() {
     form.submit();
     keepSession();
   }
-}
+
 
 
 

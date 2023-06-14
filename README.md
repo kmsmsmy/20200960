@@ -62,7 +62,7 @@ search.js를 활용하여 검색기능 추가
 ## 3주차 응용문제
 <div class="w-auto p-3" style="background-color: #;">
 		 <table class="table table-dark table-hover">
-			 <caption align="top">현재 검색어 : <p id="search_message"></p></caption>  <!--ppt마지막장 검색어 입력 해결못함-->		 
+			 <caption align="top">현재 검색어 : <p id="search_message"></p></caption>	 
 				<tbody class="table-group-divider">
                 <tr bgcolor="green">
                     <td class="table-primary" width="50"><b>영화</b>
@@ -104,3 +104,119 @@ search.js를 활용하여 검색기능 추가
        	 </table>
         </div>
 
+
+// 6주차 필터링
+document.getElementById("search_btn").addEventListener('click', search_message);
+
+var search_array = [];
+var ban_word_list = ["사자", "호랑이", "뱀"]; // 6주차 필터링 단어 사자, 호랑이, 뱀
+
+console.log(ban_word_list.length);
+
+function search_message() {
+    let search_str = document.querySelector("#search_txt"); // 변수에 저장
+
+    var isFiltered = false;
+
+    if (search_str.value.length === 0) {
+        alert("검색어가 비었습니다. 입력해주세요");
+        isFiltered = true;
+    }
+
+    for (var i = 0; i < ban_word_list.length; i++) {
+        if (search_str.value === ban_word_list[i]) {
+            alert("금칙어 " + ban_word_list[i] + " 이(가) 포함되어있어 검색이 안됩니다.");
+            isFiltered = true;
+            break;
+        }
+    }
+
+    if (!isFiltered) {
+        alert("검색을 수행합니다!");
+        search_array.push(search_str.value);
+        if (search_array.length > 2) {
+            search_array.shift();
+        }
+        let text = document.getElementById("search_message").innerHTML = search_array.toString(); //값 변환
+        document.querySelector("#form_main").submit();
+        console.log(search_str.value);
+    }
+    console.log(search_array.length);
+}
+
+
+// 7-2 주차 응용문제
+
+
+var close_time; // 시간 정보
+var close_time2 = 10; // 10초 설정
+
+clearTimeout(close_time); // 재호출 정지
+close_time= setTimeout("close_window()", 10000);  // 1/1000 초 지정, 바로 시작 
+show_time(); // 실시간 시간 보여주기
+
+function show_time(){
+        let divClock = document.getElementById('Time');
+        divClock.innerText = "남은 시간은"+  close_time2 + "초 입니다" // 10초 삽입 시작 // 7-2주차 응용문제
+        close_time2--; // 1초씩 감소
+    setTimeout(show_time, 1000);  //1초마다 갱신
+}
+
+function close_window() { // 함수 정의
+   window.close(); // 윈도우 닫기
+}
+
+window.onload=showWindow;
+
+
+
+// 9주차 응용문제
+function login_check(email, password)
+   {
+    const emailRegex = /^[a-zA-Z0-9+-_.}+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
+    const passwordRegex = /^(?=.[A-Za-z])(?=.\d)(?=.[@!%#?&])[A-Za-z\d@!%*#?&]{8,}$/;
+
+    if (!emailRegex.test(email))
+   {
+    return false;
+    }
+
+    if (!passwordRegex.test(password))
+   {
+   return false;
+   }
+    return true;
+   }
+   
+  //11주차 응용문제
+  // 로그인카운트
+function login() {
+  let form = document.querySelector("#form_main");
+  let id = document.querySelector("#floatingInput");
+  let password = document.querySelector("#floatingPassword");
+  let check = document.querySelector("#idSaveCheck");
+
+  form.action = "index_login.html";
+  form.method = "get";
+
+  if (check.checked == true) {
+    alert("쿠키를 저장합니다.");
+    setCookie("id", id.value, 5/1440); // 5분 유지
+    alert("쿠키 값: " + id.value);
+  } else 
+    setCookie("id", id.value, 0);
+  }
+
+  if (id.value.length === 0 || password.value.length === 0) {
+    alert("아이디와 비밀번호를 모두 입력해주세요.");
+  } else if (!login_check(id.value, password.value)) {
+    alert("올바른 이메일과 패스워드 형식을 입력해주세요.");
+  } else {
+    form.action = "../index_login.html";
+    form.method = "get";
+    session_set();
+    form.submit();
+    keepSession();
+  }
+
+   

@@ -2,7 +2,7 @@
 document.getElementById("search_btn").addEventListener('click', search_message);
 
 var search_array = [];
-var ban_word_list = ["사자", "호랑이", "뱀"]; // 필터링 단어 사자, 호랑이, 뱀
+var ban_word_list = ["사자", "호랑이", "뱀"]; // 6주차 필터링 단어 사자, 호랑이, 뱀
 
 console.log(ban_word_list.length);
 
