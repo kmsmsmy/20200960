@@ -50,16 +50,23 @@
        		     기타 웹사이트
       		    </a>
      		     <ul class="dropdown-menu">
-     		       <li><a class="dropdown-item" href="#">네이버</a></li>
-					 <base href="https://www.naver.com/"> <!네이버 링크>
-      		      <li><a class="dropdown-item" href="#">다음</a></li>
-        		    <li><a class="dropdown-item" href="#">네이트</a></li>
+					 <li><a class="dropdown-item"><a href="https://www.naver.com/">네이버</a></a></li>
+					
+					 <li><a class="dropdown-item"><a href="https://www.daum.net/">다음</a></a></li>
+					 <li><a class="dropdown-item"><a href="https://www.nate.com/">네이트</a></a></li>
     		      </ul>
    		     </li>
 			<li class="nav-item">
-				<button class="btn btn-outline-success" type="submit" onclick="location.href='login/login.html'">로그인하기</button>    <!로그인하기 버튼 창>
+				<button class="btn btn-outline-success" type="submit" onclick="location.href='../login.html'">로그인하기</button>    <!로그인하기 버튼 창>
+
+				
 				<button class="btn btn-outline-success" type="submit" onclick="location.href='join.html'">회원가입</button>
 
+				
+		
+				
+				
+				
 			  </li>
    		   </ul>
   		  </div>
@@ -105,7 +112,14 @@
 		<br>        <!br은 줄 바꿈입니다.>
 		<hr>        <!hr은 밑줄을 그려줍니다.>
 		
-		<form action="https://www.google.co.kr/search" method="GET" target="_blank">
+		
+		<p style="text-align:center"><img src="img/googlelogo_color_272x92dp.png" alt="구글이미지"></p>
+		<! img 태그는 이미지를 삽입합니다. src=경로, 이미지 깨지면 alt 출력>
+
+		<!검색창이 비었을때>
+		 <form id="form_main" action="https://www.google.co.kr/search" method="GET" target="_blank" onsubmit="return false">
+				
+		 
             <div class="d-flex justify-content-center">
                 <mx-auto>
                     <input name="query" type="text" class="form-control-lg" placeholder="검색어 입력" aria-label="search" aria-describedby="search_btn" id="search_txt">
@@ -114,7 +128,11 @@
            </div>
         </form>
 		
-			
+		
+		
+		
+		
+		
 		<div class="w-auto p-3" style="background-color: #;">
 
 		<!--table style="margin-left:auto;margin-right:auto;"border="1" width="500"><!테이블을 정의합니다.-->
@@ -122,7 +140,7 @@
 			 <caption align="top">현재 검색어 : <p id="search_message"></p></caption>  <!--ppt마지막장 검색어 입력 해결못함-->
 			 
 				<tbody class="table-group-divider">
-                <tr bgcolor="yellow">
+                <tr bgcolor="green">
                     <td class="table-primary" width="50"><b>영화</b>
                     </td>
                     <td width="80" bgcolor="blue">아저씨</td>
@@ -138,15 +156,27 @@
                     <td>JPOP</td>
                     <td>ROCK1</td>
                     <td>ROCK2</td>
-                    <td>EUROBEAT</td>
-            	    </tr>
-					<tr bgcolor="blue">
-                    <td class="table-success" width="50"><b>게임</b></td>
+					<td rowspan="2">EUROBEAT</td> <! 2행 추가.>
+            	    </tr>	
+					<tr bgcolor="red">
+                    <td colspan="2" width="50">게임</td>
                     <td>LOL</td>
                     <td>WOW</td>
-                    <td>DIABLO</td>
-                    <td colspan="2">SUDDEN ATTACK 2</td>
-              	    </tr>
+                    <td> SUDDEN</td>
+              	    </tr>		
+					<tr>
+					<td colspan="6" width="100">외부 사이트 링크</td>
+					</tr>				
+					<tr>
+					<td colspan="2"><a href="https://www.naver.com/">네이버</a></td>
+						
+					<td colspan="2" bgcolor="yellow"><a href="https://www.daum.net/">다음</a></td>
+
+						
+					<td colspan="2" bgcolor="purple"><a href="https://www.nate.com/">네이트</a></td>
+					</tr>
+						
+						
           	    </tbody>
        	 </table>
         </div>
@@ -155,7 +185,9 @@
 		<hr><!hr은 밑줄을 그려줍니다.>
 		<p style="text-align:right"><font size="3em" color="red">문서의 본문 텍스트, 이미지, 테이블, 자바스크립트, 코드, 동영상 등 </font></p>
 		<br> <!br은 줄 바꿈입니다.>
-		
+		<br>
+		<br>
+		<br>
 		<footer class="bg-light text-center text-lg-start">
   		<div class="text-center p-3" style="background-color:#D8D8D8;">
   		  <h3 class="text-secondary">FOOTER TEST</h3>
